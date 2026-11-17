@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dicionário de Dados & Governança | Trans Am Worldwide (TAW-ERP)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header / Top Bar -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-emblem" aria-hidden="true">
+          <span>TAW</span>
+        </div>
+        <div>
+          <span class="brand-kicker">DATA GOVERNANCE PORTAL • DAMA-DMBOK &amp; COBIT</span>
+          <h1>Trans Am Worldwide <span class="gold-accent">TAW-ERP</span></h1>
+        </div>
+      </div>
+
+      <nav class="topbar-actions" aria-label="Artefatos e Ferramentas">
+        <a href="docs/especificacao-requisitos.pdf" download="Especificacao-Requisitos-Trans-Am-Worldwide.pdf" target="_blank" rel="noopener" class="btn btn-outline" id="btn-download-pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Requisitos (.PDF)
+        </a>
+        <button type="button" class="btn btn-outline" id="btn-open-der">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Visualizar DER
+        </button>
+        <button type="button" class="btn btn-gold" id="btn-open-ddl">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Script DDL (.SQL)
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero & Governance Metadata -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-summary">
+          <div class="badge-row">
+            <span class="badge badge-gold">MySQL 8.0+ InnoDB</span>
+            <span class="badge badge-dark">3ª Forma Normal (3FN)</span>
+            <span class="badge badge-dark">UTF8MB4_UNICODE_CI</span>
+            <span class="badge badge-green">Conformidade LGPD &amp; DOT/NHTSA</span>
+          </div>
+          <h2>Catálogo Corporativo de Metadados e Linhagem</h2>
+          <p>
+            Repositório oficial de governança de dados do <strong>Sistema de Gestão Operacional, Customização e Vendas (TAW-ERP)</strong> da <strong>Trans Am Worldwide</strong> (Tallahassee, FL). Estrutura o rastreamento artesanal de veículos muscle cars por chassi (<strong>VIN</strong>), controle rigoroso de séries limitadas (<em>455 Super Duty, Bandit Edition, Hurst Edition, 70/SS</em>), catálogo de performance e conformidade fiscal/regulatória.
+          </p>
+        </div>
+
+        <aside class="governance-card" aria-label="Metadados de Governança">
+          <h3>Governança &amp; Papéis (DAMA-DMBOK)</h3>
+          <dl class="gov-list">
+            <div>
+              <dt>Data Owner (Negócio)</dt>
+              <dd>Diretoria de Operações — Trans Am Worldwide</dd>
+            </div>
+            <div>
+              <dt>Data Steward &amp; Arquitetura</dt>
+              <dd>Gustavo Patricio Leandro Soares (RA 761171) • Grupo MuscleTech Data</dd>
+            </div>
+            <div>
+              <dt>Data Custodian (SGBD)</dt>
+              <dd>Administração de Banco de Dados MySQL 8.0+ (InnoDB / ACID)</dd>
+            </div>
+            <div>
+              <dt>Instituição / Orientação</dt>
+              <dd>Centro Universitário Fundação Santo André • Prof. Diego Marques de Carvalho</dd>
+            </div>
+            <div>
+              <dt>Frameworks &amp; Conformidade</dt>
+              <dd>DAMA-DMBOK v2 • COBIT 2019 (DSS05/BAI03) • LGPD • IRS / Receita Federal • DOT/NHTSA</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+
+      <!-- KPI Counters -->
+      <div class="kpi-strip" id="kpi-strip">
+        <div class="kpi-card">
+          <span class="kpi-value" id="kpi-tables">12</span>
+          <span class="kpi-label">Tabelas Base (3FN) + 1 View</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value" id="kpi-columns">0</span>
+          <span class="kpi-label">Atributos Catalogados</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value" id="kpi-lgpd">0</span>
+          <span class="kpi-label">Campos Sensíveis / PII (LGPD)</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-value">9</span>
+          <span class="kpi-label">Triggers de Integridade &amp; Auditoria</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Interactive Catalog -->
+  <main class="container main-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" aria-label="Navegação de Entidades">
+      <div class="sidebar-header">
+        <h3>Entidades do Esquema</h3>
+        <span class="entity-count" id="sidebar-count">13 objetos</span>
+      </div>
+      <div class="domain-filters" id="domain-filters">
+        <button class="filter-chip active" data-domain="ALL">Todos</button>
+        <button class="filter-chip" data-domain="Comercial">Comercial</button>
+        <button class="filter-chip" data-domain="Produção">Produção</button>
+        <button class="filter-chip" data-domain="Catálogo">Catálogo</button>
+        <button class="filter-chip" data-domain="Governança">Governança</button>
+      </div>
+      <ul class="entity-nav" id="entity-nav"></ul>
+    </aside>
+
+    <!-- Content Area -->
+    <section class="catalog-content">
+      <!-- Real-Time Search & Filters -->
+      <div class="search-toolbar">
+        <div class="search-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="search-input" placeholder="Pesquisar tabela, coluna, tipo SQL, regra de negócio (RN01..RN08), LGPD ou RBAC..." autocomplete="off" />
+          <button type="button" id="clear-search" class="clear-btn" title="Limpar busca" hidden>&times;</button>
+        </div>
+
+        <div class="toolbar-filters">
+          <select id="lgpd-filter" aria-label="Filtrar por classificação LGPD">
+            <option value="ALL">Classificação LGPD: Todas</option>
+            <option value="PII">Dado Pessoal (PII)</option>
+            <option value="SENSIVEL">Crítico / Credencial / Fiscal</option>
+            <option value="INTERNO">Operacional Interno</option>
+            <option value="PUBLICO">Catálogo / Público</option>
+          </select>
+
+          <select id="key-filter" aria-label="Filtrar por tipo de chave">
+            <option value="ALL">Chaves: Todas</option>
+            <option value="PK">Somente PK (Primary Key)</option>
+            <option value="FK">Somente FK (Foreign Key)</option>
+            <option value="UQ">Somente UNIQUE</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results-bar">
+        <span id="results-status">Exibindo todas as entidades e atributos do esquema <code>trans_am_worldwide</code>.</span>
+        <div class="expand-controls">
+          <button type="button" class="link-btn" id="btn-expand-all">Expandir todas</button>
+          <span>•</span>
+          <button type="button" class="link-btn" id="btn-collapse-all">Recolher todas</button>
+        </div>
+      </div>
+
+      <!-- Tables Container -->
+      <div id="tables-container" class="tables-container"></div>
+
+      <!-- Business Rules & Policies Matrix -->
+      <section class="governance-matrix" aria-label="Matriz de Regras de Negócio e Políticas">
+        <div class="section-title-row">
+          <h3>Regras de Negócio (RN) &amp; Políticas Legais (PR) Implementadas no SGBD</h3>
+          <span class="badge badge-gold">Rastreabilidade COBIT BAI03 / DSS05</span>
+        </div>
+        <div class="rules-grid" id="rules-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p><strong>Trans Am Worldwide — TAW-ERP Data Dictionary</strong> • Desenvolvido por <strong>Gustavo Patricio Leandro Soares</strong> (Grupo MuscleTech Data)</p>
+      <p class="footer-sub">Centro Universitário Fundação Santo André • Ciência da Computação — SQL &amp; Governança de Dados • 2026</p>
+    </div>
+  </footer>
+
+  <!-- MODAL 1: DER Viewer with Zoom & Pan -->
+  <div class="modal-backdrop" id="modal-der" role="dialog" aria-modal="true" aria-labelledby="modal-der-title" hidden>
+    <div class="modal-window modal-large">
+      <div class="modal-header">
+        <div>
+          <span class="brand-kicker">MODELO CONCEITUAL / LÓGICO (3FN)</span>
+          <h3 id="modal-der-title">Diagrama Entidade-Relacionamento (DER)</h3>
+        </div>
+        <div class="der-controls">
+          <button type="button" class="btn btn-sm btn-outline" id="der-zoom-out" title="Reduzir Zoom (-)">−</button>
+          <span class="zoom-indicator" id="der-zoom-level">100%</span>
+          <button type="button" class="btn btn-sm btn-outline" id="der-zoom-in" title="Ampliar Zoom (+)">+</button>
+          <button type="button" class="btn btn-sm btn-outline" id="der-reset" title="Resetar Visualização">Resetar</button>
+          <a href="assets/der.png" download="DER-Trans-Am-Worldwide.png" class="btn btn-sm btn-gold">Baixar PNG</a>
+          <button type="button" class="modal-close" data-close="modal-der" aria-label="Fechar modal">&times;</button>
+        </div>
+      </div>
+      <div class="der-viewport" id="der-viewport">
+        <div class="der-stage" id="der-stage">
+          <img src="assets/der.png" alt="Diagrama Entidade-Relacionamento do Banco de Dados Trans Am Worldwide" id="der-image" draggable="false" />
+        </div>
+        <div class="der-hint">Arraste com o mouse para mover • Use a roda do mouse ou os botões + / − para zoom</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: DDL Script Viewer with Syntax Highlighting & Copy -->
+  <div class="modal-backdrop" id="modal-ddl" role="dialog" aria-modal="true" aria-labelledby="modal-ddl-title" hidden>
+    <div class="modal-window modal-large">
+      <div class="modal-header">
+        <div>
+          <span class="brand-kicker">MYSQL 8.0+ • INNODB • TRIGGERS &amp; VIEWS</span>
+          <h3 id="modal-ddl-title">Script DDL Completo (03_ddl_trans_am_worldwide.sql)</h3>
+        </div>
+        <div class="der-controls">
+          <button type="button" class="btn btn-sm btn-gold" id="btn-copy-ddl">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copy-ddl-text">Copiar Script SQL</span>
+          </button>
+          <button type="button" class="modal-close" data-close="modal-ddl" aria-label="Fechar modal">&times;</button>
+        </div>
+      </div>
+      <div class="ddl-body">
+        <pre class="sql-code"><code id="ddl-code-block"></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
